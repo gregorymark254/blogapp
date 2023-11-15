@@ -5,6 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="{{url_for('static',filename="css/style.css")}}" rel="stylesheet">
     {% if title %}
         <title>Flask Blog - {{ title }}</title>
     {% else %}
@@ -12,6 +13,8 @@
     {% endif %}
 </head>
 <body>
-    {% block content %}{% endblock %}
+    <div class="container mx-auto p-4">
+        {% block content %}{% endblock %}
+    </div>
 </body>
 </html>
