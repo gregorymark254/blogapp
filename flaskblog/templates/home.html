@@ -1,9 +1,14 @@
 {% extends "layout.html" %}
 {% block content %}
     {% for post in posts %}
-        <div>
-            <h1>{{ post.title }}</h1>
-            <p>By {{ post.author }} on {{ post.date_posted }}</p>
+        <div class="media-body">
+            <img class="rounded-circle" src="{{ url_for('static', filename='images/' +  post.author.image_file) }}"
+                 alt="">
+            <div>
+                <p>By {{ post.author.username }}</p>
+                <span class="text-muted">{{ post.date_posted.strftime('%Y-%m-%d') }}</span>
+            </div>
+            <h1><a class="text-secondary" href="{{ url_for('post', post_id=post.id) }}">{{ post.title }}</a></h1>
             <p>{{ post.content }}</p>
         </div>
     {% endfor %}
